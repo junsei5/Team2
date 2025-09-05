@@ -93,7 +93,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-background p-8">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-3xl font-bold text-foreground mb-8 text-center">流行けんさくん</h1>
-        
+
         <div className="mb-12">
           <h2 className="text-2xl font-bold text-foreground mb-6">年代</h2>
           <div className="relative">
