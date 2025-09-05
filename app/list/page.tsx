@@ -1,5 +1,8 @@
+"use client"
+
 import { ChevronLeft, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useRouter } from "next/navigation"
 
 const dramas = [
   {
@@ -37,21 +40,21 @@ const dramas = [
 ]
 
 export default function DramaListPage() {
+  const router = useRouter()
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Mobile frame simulation */}
       <div className="mx-auto max-w-sm bg-white min-h-screen">
         {/* Header */}
         <div className="flex items-center justify-between p-4 bg-white">
-          <Button
-            variant="ghost"
+          <Button         
+           variant="ghost"
             size="icon"
             className="h-10 w-10 hover:bg-gray-100 active:bg-gray-200 transition-colors"
+            onClick={() => router.back()}
           >
             <ChevronLeft className="h-6 w-6" />
-          </Button>
-          <Button size="icon" className="h-10 w-10 bg-green-500 hover:bg-green-600 rounded-full">
-            <ArrowRight className="h-5 w-5 text-white" />
           </Button>
         </div>
 
