@@ -1,13 +1,14 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-
+import { useRouter}from"next/navigation";
 export default function HomePage() {
   const [selectedYear, setSelectedYear] = useState<number | null>(null)
   const [selectedTrend, setSelectedTrend] = useState<string | null>(null)
 
   const yearScrollRef = useRef<HTMLDivElement>(null)
   const trendScrollRef = useRef<HTMLDivElement>(null)
+  const router = useRouter()
 
   const detectCenterItem = (scrollContainer: HTMLDivElement, items: any[], setter: (item: any) => void) => {
     const containerRect = scrollContainer.getBoundingClientRect()
@@ -74,6 +75,7 @@ export default function HomePage() {
       alert(`選択完了！\n年代: ${selectedYear}\n流行: ${selectedTrend}\n\n次のページに進みます`)
       // ここで実際のページ遷移を実装できます
       // router.push('/next-page') など
+      router.push("/list")
     }
   }
 
