@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { ChevronLeft, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -8,6 +9,7 @@ const dramas = [
   },
   {
     title: "やまとなでしこ",
+    slug: "yamato-nadeshiko", 
     image: "https://cdn.image.st-hatena.com/image/scale/16a761768d4060f3dcbc951b0e1b5cf47ddb4fcf/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fi.fod.fujitv.co.jp%2Fimf%2Fsynth%2Fh%3D480%2Ca%3D0%2Cu%3D1%2Cl%3D%28h%3D480%2Ca%3D0%2Cu%3D0%252Fimg%252Fprogram%252F00tk%252F00tk_a.jpg%29%2Cq%3D95%2Cf%3Dwebp%3Aauto%2Fimg%2Fetc%2F0000_still_blur.jpg",
   },
   {
@@ -63,19 +65,24 @@ export default function DramaListPage() {
         {/* Drama Grid */}
         <div className="px-4 pb-8">
           <div className="grid grid-cols-2 gap-4">
-            {dramas.map((drama, index) => (
-              <div key={index} className="space-y-2 cursor-pointer group transition-transform hover:scale-105">
+            {dramas.map((d) =>  (
+              <Link
+                key={d.slug}
+                href={`/drama/${d.slug}`}
+                aria-label={`${d.title}の詳細へ`}
+                className="block space-y-2 rounded-lg group cursor-pointer transition-transform hover:scale-105
+                           focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
                 <div className="aspect-[4/3] overflow-hidden rounded-lg bg-gray-100 group-hover:ring-2 group-hover:ring-blue-400 group-hover:ring-offset-2 transition-all">
                   <img
-                    src={drama.image || "/placeholder.svg"}
-                    alt={drama.title}
+                    src={d.image || "/placeholder.svg"}
+                    alt={d.title}
                     className="h-full w-full object-cover group-hover:brightness-110 transition-all"
                   />
                 </div>
                 <h3 className="text-sm font-medium text-gray-900 text-center group-hover:text-blue-600 transition-colors">
-                  {drama.title}
+                  {d.title}
                 </h3>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
