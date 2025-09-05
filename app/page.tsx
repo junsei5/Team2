@@ -72,7 +72,6 @@ export default function HomePage() {
       console.log("両方選択されました - 次のページへ進みます")
       console.log("選択された年代:", selectedYear)
       console.log("選択された流行:", selectedTrend)
-      alert(`選択完了！\n年代: ${selectedYear}\n流行: ${selectedTrend}\n\n次のページに進みます`)
       // ここで実際のページ遷移を実装できます
       // router.push('/next-page') など
       router.push("/list")
