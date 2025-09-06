@@ -1,0 +1,168 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  background: url("2fafc3e9d97902145565992126cc4c61.jpg") repeat; /* ← public/brick.jpg に画像を置く */
+  background-size: 300px auto;
+}
+
+.pageTitle {
+  font-size: 2.0rem;
+  font-weight: bold;
+  font-family: "Georgia", serif;
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  
+  min-height: 100vh;
+  margin:0 auto;
+  position: relative;
+  border-radius: 20px;
+  box-shadow:
+   0 4px 12px rgba(0, 0, 0, 0.3),
+   0 8px 24px rgba(0, 0, 0, 0.2);
+   overflow: hidden;
+}
+
+.pageHeader{
+  background: #fff;
+  padding: 24px 16px;
+  border-bottom: 2px solid #000;
+  text-align:center;
+}
+
+
+
+.container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    #000000,
+    #000000 2px,
+    transparent 2px,
+    transparent 40px
+  ),
+  
+  repeating-linear-gradient(
+    to bottom,
+    #000000 7px,
+    #000000 8px,
+    transparent 8px,
+    transparent 40px
+  );
+ 
+  background-size: 100% 40px, 10px 8px;  /* 長い線=全幅, 短い線=右端10pxだけ */
+  background-position: right top, right top;
+  background-repeat: repeat-y;
+  opacity: 0.8;
+
+}
+
+
+/* ヘッダー（戻るボタンを置くバー） */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  border-bottom: 2px solid #333;
+  background: #eee;
+}
+
+/* タイトル */
+.title {
+  padding: 16px;
+  font-size: 1.5rem;
+  font-family: "Georgia", serif;
+  font-style: italic;
+  text-align: left;
+}
+
+/* グリッド */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px,1fr));
+  gap: 16px;
+  padding: 0 8px 32px;
+  justify-content: start; 
+}
+
+/* 各カード */
+.card {
+  position: relative;
+  border: 2px solid #000;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  border-top: 8px solid #222;
+  border-bottom: 8px solid #222;
+  border-left: none;
+  border-right: none;
+
+ transform: scale(0.85);
+ transform-origin: left center;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25)
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.cardTitle {
+  display: none;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  border-color: #0070f3;
+}
+
+.card:hover img {
+  filter: grayscale(0%);
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.card:hover img {
+  filter: grayscale(0%);
+}
+
+.cardTitle {
+  text-align: center;
+  font-size: 0.875rem;
+  font-family: "Georgia", serif;
+  margin: 8px 0;
+}
+
+/* Backボタン */
+.backButton {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  font-family: "Georgia", serif;
+  font-size: 1rem;
+  color: #333;
+  cursor: pointer;
+}
