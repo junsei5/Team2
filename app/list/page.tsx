@@ -12,7 +12,7 @@ const dramas = [
   },
   {
     title: "やまとなでしこ",
-    slug: "yamato-nadeshiko", 
+    slug: "yamatonadeshiko", 
     image: "https://cdn.image.st-hatena.com/image/scale/16a761768d4060f3dcbc951b0e1b5cf47ddb4fcf/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fi.fod.fujitv.co.jp%2Fimf%2Fsynth%2Fh%3D480%2Ca%3D0%2Cu%3D1%2Cl%3D%28h%3D480%2Ca%3D0%2Cu%3D0%252Fimg%252Fprogram%252F00tk%252F00tk_a.jpg%29%2Cq%3D95%2Cf%3Dwebp%3Aauto%2Fimg%2Fetc%2F0000_still_blur.jpg",
   },
   {
@@ -84,11 +84,11 @@ export default function DramaListPage() {
                   role="button"
                   tabIndex={0}
                   aria-label={`${d.title}の詳細へ`}
-                  onClick={() => router.push(`/drama/${d.slug}`)}
+                  onClick={() => router.push(`/list/${d.slug}`)}
                   onKeyDown={(e) => {
                     if (e.key === "Enter" || e.key === " ") {
                       e.preventDefault()
-                      router.push(`/drama/${d.slug}`)
+                      router.push(`/list/${d.slug}`)
                     }
                   }}
                   className="block h-full w-full cursor-pointer focus:outline-none

@@ -10,7 +10,7 @@ export default function DramaListPage() {
       {/* Header Navigation */}
       <div className="flex items-center justify-between p-4 border-b">
         <Button asChild variant="ghost" size="icon" className="text-foreground">
-         {/* 一覧に戻る　例: /dramas */}
+         {/* 一覧に戻る　*/}
          <Link href="/list/list2" aria-label="一覧に戻る">
          <ArrowLeft className="h-6 w-6" />
          </Link>
