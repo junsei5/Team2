@@ -18,7 +18,7 @@ export default function HomePage() {
   const trendScrollRef = useRef<HTMLDivElement>(null)
   const router = useRouter()
 
-  const YEARS = Array.from({ length: 13 }, (_, i) => 1900 + i * 10)
+  const YEARS = Array.from({ length: 6 }, (_, i) => 1970 + i * 10)
   const trends = ["ドラマ", "CM", "ファッション", "流行語"]
 
   const detectCenterItem = (
