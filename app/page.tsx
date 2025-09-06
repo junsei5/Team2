@@ -16,6 +16,14 @@ const jacquesShadow = Jacques_Francois_Shadow({
   weight: '400',
 });
 
+import { Playfair_Display } from 'next/font/google'
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  display: 'swap',
+})
+
 // フォントの読み込みと設定
 const jacques = Jacques_Francois({
   subsets: ['latin'],
@@ -99,29 +107,33 @@ export default function HomePage() {
 
       {/* コンテンツ */}
       <div className="relative z-10 p-8 max-w-6xl mx-auto">
-        <h1 className={`text-7xl md:text-8xl text-center mb-8 leading-snug ${jacquesShadow.className}`}>
-          <div className="inline-block bg-white/30 px-4 py-2">Rewind</div>
-          <div className="inline-block bg-white/30 px-4 py-2">the clock</div>
+        <h1 className={`text-8xl md:text-8xl text-center leading-snug ${jacquesShadow.className}`}
+        style={{ marginBottom: "10rem" }} // ここで間隔を広く指定
+      >
+          <div className="inline-block bg-white/30 px-8 py-4">Rewind</div>
+          <div className="inline-block bg-white/30 px-8 py-4 -mt-8">the clock</div>
         </h1>
 
+      <p className={`text-4xl md:text-5xl text-center leading-relaxed mb-8 ${playfair.className}`}>
+        <span className="inline-block bg-white/30 px-2 py-1">
+         時の針を少しだけ、巻き戻しませんか。
+        </span>
+        <br />
+        <span className="inline-block bg-white/30 px-2 py-1">
+         忘れ去られた時代の喧騒、一世を風靡した流行の輝き。
+        </span>
+        <br />
+        <span className="inline-block bg-white/30 px-2 py-1">
+         指先ひとつで、記憶の旅へ。
+        </span>
+      </p>
 
-        <p className="text-3xl md:text-5xl text-center text-gray-800 leading-relaxed mb-8 font-[Poppins]">
-          <span className="inline-block bg-white/30 px-2 py-1">
-           時の針を少しだけ、巻き戻しませんか。
-          </span>
-          <br />
-          <span className="inline-block bg-white/30 px-2 py-1">
-           忘れ去られた時代の喧騒、一世を風靡した流行の輝き。
-          </span>
-          <br />
-          <span className="inline-block bg-white/30 px-2 py-1">
-           指先ひとつで、記憶の旅へ。
-          </span>
-        </p>
 
         {/* 年代選択 */}
         <div className="mb-12 text-center">
-          <h2 className={`text-2xl font-bold mb-4 ${meddon.className}`}>
+          <h2 className={`text-4xl font-bold mb-4 ${meddon.className}`}
+              style={{ marginTop: "10rem" }} // ← ここで間隔を広くする
+          >
             <span className="inline-block bg-white/30 px-3 py-1">
               Decades Ago
             </span>
@@ -136,7 +148,7 @@ export default function HomePage() {
               {YEARS.map((year) => (
             <div
               key={year}
-              className={`w-32 h-32 flex items-center justify-center border-2 text-lg font-semibold flex-shrink-0 transform transition-transform duration-300 ${meddon.className} ${
+              className={`w-32 h-32 flex items-center justify-center border-2 text-2xl font-semibold flex-shrink-0 transform transition-transform duration-300 ${meddon.className} ${
                 selectedYear === year
                   ? "bg-stone-900 text-white border-stone-950 scale-120"
                   : "bg-stone-950 text-amber-100 border-stone-800"
@@ -149,7 +161,7 @@ export default function HomePage() {
                 minHeight: "8rem",
               }}
           >
-              <span className="inline-block bg-white/30 px-2 py-1">{year}s</span>
+             {year}s
             </div>
               ))}
             </div>
@@ -158,7 +170,9 @@ export default function HomePage() {
 
         {/* 流行選択 */}
         <div className="mb-12 text-center">
-            <h2 className={`text-2xl font-bold mb-4 ${meddon.className}`}>
+            <h2 className={`text-4xl font-bold mb-4 ${meddon.className}`}
+                style={{ marginTop: "10rem" }} // ← ここで間隔を広くする
+            >
               <span className="inline-block bg-white/30 px-3 py-1">
                 Categories
               </span>
@@ -193,7 +207,7 @@ export default function HomePage() {
         </div>
 
         {/* ボタン */}
-        <div className="flex justify-center">
+        <div className="flex justify-center" style={{ marginTop: "10rem" }}>
           {selectedYear && selectedTrend && (
             <button
               onClick={handleNextPage}
