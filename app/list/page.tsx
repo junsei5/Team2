@@ -3,6 +3,14 @@ import { ChevronLeft, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useRouter, useSearchParams } from "next/navigation"
 import styles from "./ListPage.module.css"
+// ListPage.tsx
+import { Meddon } from "next/font/google"
+
+const meddon = Meddon({
+  weight: "400",       // Meddon は1ウェイトしかないのでこれでOK
+  subsets: ["latin"],  // 必須
+})
+
 
 const data: Record<string, { title: string; image: string }[]> = {
   "ドラマ": [
@@ -34,6 +42,7 @@ const data: Record<string, { title: string; image: string }[]> = {
     { title: "ロリータファッション", image: "https://tokyo-lolita-plus.blog/wp-content/uploads/2019/06/e383ade383aae383bce382bf.jpg" },
   ],
 }
+
 
 
 const dramas = [
@@ -104,10 +113,12 @@ export default function DramaListPage() {
           </Button>
         </div>
 
+
         {/* Title */}
         <div className={styles.pageHeader}>
-          <h1 className={styles.pageTitle}>
-            {year}年代　{trend}
+         
+          <h1 className={`${styles.pageTitle} ${meddon.className}`}>
+            {year} s {trendMap[trend] || trend}
           </h1>
         </div>
 
@@ -147,7 +158,9 @@ export default function DramaListPage() {
            </div>
           </div>
       </div>
-      
+      <a onClick={() => router.back()} className={styles.backButton}>
+        <img src="./2025-09-06_202226-removebg-preview.png" alt="Back" />
+      </a>
     </div>
   )  
 }
