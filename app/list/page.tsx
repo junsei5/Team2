@@ -12,7 +12,7 @@ const meddon = Meddon({
 })
 
 
-const data: Record<string, { title: string; image: string }[]> = {
+const trendMap: Record<string, { title: string; image: string }[]> = {
   "ドラマ": [
     { title: "コード・ブルー", image: "https://thvnext.bing.com/th/id/OIP.GjynNcTBL0aaszi_s-3LVwHaEK?w=309&h=180&c=7&r=0&o=7&cb=ucfimg2&dpr=1.5&pid=1.7&rm=3&ucfimg=1" },
     { title: "やまとなでしこ", image: "https://cdn.image.st-hatena.com/image/scale/16a761768d4060f3dcbc951b0e1b5cf47ddb4fcf/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fi.fod.fujitv.co.jp%2Fimf%2Fsynth%2Fh%3D480%2Ca%3D0%2Cu%3D1%2Cl%3D%28h%3D480%2Ca%3D0%2Cu%3D0%252Fimg%252Fprogram%252F00tk%252F00tk_a.jpg%29%2Cq%3D95%2Cf%3Dwebp%3Aauto%2Fimg%2Fetc%2F0000_still_blur.jpg" },
