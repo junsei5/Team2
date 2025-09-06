@@ -4,6 +4,20 @@ import { useState, useEffect, useRef } from "react"
 import { useRouter } from "next/navigation"
 import { Jacques_Francois } from 'next/font/google'
 
+import { Meddon } from 'next/font/google'
+
+const meddon = Meddon({
+  subsets: ['latin'],
+  weight: '400',
+})
+
+import { Jacques_Francois_Shadow } from 'next/font/google';
+
+const jacquesShadow = Jacques_Francois_Shadow({
+  subsets: ['latin'],
+  weight: '400',
+});
+
 // フォントの読み込みと設定
 const jacques = Jacques_Francois({
   subsets: ['latin'],
@@ -75,35 +89,45 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-background p-8">
       <div className="max-w-6xl mx-auto">
-        <h1 className={`text-5xl text-center mb-8 leading-tight ${jacques.className}`}>
+      <h1 className={`text-7xl md:text-8xl text-center mb-8 leading-snug ${jacquesShadow.className}`}>
           <div>rewind</div>
           <div>the clock</div>
-       </h1>
+        </h1>
 
-       <p className="text-center text-lg text-gray-600 mb-8 animate__animated animate__fadeIn animate__slow font-[Poppins]">
-        時計の針を少しだけ、巻き戻しませんか。<br/>
-        忘れ去られた時代の喧騒、一世を風靡した流行の輝き。<br/>
-        指先ひとつで、記憶の旅へ。
-       </p>
+        <p
+          className="text-3x1 md:text-5x1 text-center text-lg text-gray-800 leading-relaxed mb-8 animate__animated animate__fadeIn animate__slow font-[Poppins]"
+          style={{ textShadow: "2px 2px 4px rgba(0,0,0,0.3)" }}
+>
+         <span className="text-5xl">時</span>の針を少しだけ、巻き戻しませんか。<br />
+           忘れ去られた時代の喧騒、一世を風靡した流行の輝き。<br />
+           指先ひとつで、記憶の旅へ。
+        </p>
+
 
         {/* 年代選択 */}
-        <div className="mb-12">
-          <h2 className="text-xl font-bold mb-4">Decades Ago</h2>
+        <div className="mb-12 text-center">
+          <h2 className={`text-2xl font-bold mb-4 ${meddon.className}`}>Decades Ago</h2>
           <div
             ref={yearScrollRef}
-            className="overflow-x-auto scroll-smooth"
+            className="overflow-x-auto overflow-y-hidden scroll-smooth"
             style={{ scrollSnapType: "x mandatory", padding: "0 40%" }}
           >
-            <div className="flex gap-4 w-max">
+            <div className="flex gap-6 w-max">
               {YEARS.map((year) => (
                 <div
                   key={year}
-                  className={`w-32 h-32 flex items-center justify-center border-2 text-lg font-semibold flex-shrink-0 ${
+                  className={`w-32 h-32 flex items-center justify-center border-2 text-lg font-semibold flex-shrink-0 transform transition-transform duration-300 ${
                     selectedYear === year
-                      ? "bg-blue-500 text-white border-blue-700"
-                      : "bg-white text-black border-gray-400"
+                      ? "bg-stone-900 text-white border-stone-950 scale-120"
+                      : "bg-stone-950 text-amber-100 border-stone-800"
                   }`}
-                  style={{ scrollSnapAlign: "center" }}
+                  style={{ 
+                    scrollSnapAlign: "center",
+                    width: "8rem",
+                    height: "8rem",
+                    minWidth: "8rem",
+                    minHeight: "8rem",
+                  }}
                 >
                   {year}
                 </div>
@@ -113,23 +137,30 @@ export default function HomePage() {
         </div>
 
         {/* 流行選択 */}
-        <div className="mb-12">
-          <h2 className="text-xl font-bold mb-4">Categories</h2>
+        <div className="mb-12 text-center">
+          <h2 className={`text-2xl font-bold mb-4 ${meddon.className}`}>Categories</h2>
           <div
             ref={trendScrollRef}
-            className="overflow-x-auto scroll-smooth"
+            className="overflow-x-auto overflow-y-hidden scroll-smooth"
             style={{ scrollSnapType: "x mandatory", padding: "0 40%" }}
           >
-            <div className="flex gap-4 w-max">
+            <div className="flex gap-6 w-max">
               {trends.map((trend) => (
                 <div
                   key={trend}
-                  className={`w-32 h-32 flex items-center justify-center border-2 text-lg font-semibold flex-shrink-0 ${
+                  className={`w-32 h-32 flex items-center justify-center border-2 text-lg font-semibold flex-shrink-0 transform transition-transform duration-300 ${
                     selectedTrend === trend
-                      ? "bg-blue-500 text-white border-blue-700"
-                      : "bg-white text-black border-gray-400"
+                      ? "bg-stone-900 text-white border-stone-950 scale-120"
+                      : "bg-stone-950 text-amber-100 border-stone-800"
                   }`}
-                  style={{ scrollSnapAlign: "center" }}
+
+                  style={{
+                    scrollSnapAlign: "center",
+                    width: "8rem",
+                    height: "8rem",
+                    minWidth: "8rem",
+                    minHeight: "8rem",
+                  }}
                 >
                   {trend}
                 </div>
