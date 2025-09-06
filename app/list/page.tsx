@@ -1,5 +1,4 @@
 "use client"
-import { useRouter} from "next/navigation"
 import { ChevronLeft, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useRouter, useSearchParams } from "next/navigation"
@@ -82,6 +81,9 @@ const dramas = [
 
 export default function DramaListPage() {
   const router = useRouter()
+  const searchParams = useSearchParams()
+  const year = searchParams.get("year")
+  const trend = searchParams.get("trend")
   return (
     <div className={styles.page}>
       <div className={styles.container}>
@@ -128,7 +130,7 @@ export default function DramaListPage() {
                   }}
                   className="block h-full w-full cursor-pointer focus:outline-none
                              focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2
-                             aspect-[4/3] overflow-hidden rounded-lg bg-gray-100 transition-all"
+                             aspect-[4F/3] overflow-hidden rounded-lg bg-gray-100 transition-all"
                 >
                   <img
                     src={d.image || "/placeholder.svg"}
@@ -138,6 +140,7 @@ export default function DramaListPage() {
                 </div>
                 <h3 className="text-sm font-medium text-gray-900 text-center group-hover:text-blue-600 transition-colors">
                   {d.title}
+                  </h3>
 
               </div>
            ))}
