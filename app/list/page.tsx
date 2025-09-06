@@ -62,7 +62,7 @@ export default function ListPage() {
         {/* Title */}
         <div className={styles.pageHeader}>
           <h1 className={styles.pageTitle}>
-            {year}年代に流行った{trend}
+            {year}年代　{trend}
           </h1>
         </div>
 
