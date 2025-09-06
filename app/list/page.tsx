@@ -4,6 +4,14 @@ import { ChevronLeft } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useRouter, useSearchParams } from "next/navigation"
 import styles from "./ListPage.module.css"
+// ListPage.tsx
+import { Meddon } from "next/font/google"
+
+const meddon = Meddon({
+  weight: "400",       // Meddon は1ウェイトしかないのでこれでOK
+  subsets: ["latin"],  // 必須
+})
+
 
 const data: Record<string, { title: string; image: string }[]> = {
   "ドラマ": [
@@ -36,6 +44,14 @@ const data: Record<string, { title: string; image: string }[]> = {
   ],
 }
 
+const trendMap: Record<string, string> = {
+  "ドラマ": "Drama",
+  "流行語": "Buzzwords",
+  "CM": "Commercials",
+  "ファッション": "Fashion",
+}
+
+
 export default function ListPage() {
   const router = useRouter()
   const searchParams = useSearchParams()
@@ -47,22 +63,13 @@ export default function ListPage() {
   return (
     <div className={styles.page}>
       <div className={styles.container}>
-        {/* Header */}
-        <div className="flex items-center justify-between p-4">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => router.back()}
-            className="h-10 w-10"
-          >
-            <ChevronLeft className="h-6 w-6" />
-          </Button>
-        </div>
+       
 
         {/* Title */}
         <div className={styles.pageHeader}>
-          <h1 className={styles.pageTitle}>
-            {year}年代　{trend}
+         
+          <h1 className={`${styles.pageTitle} ${meddon.className}`}>
+            {year} s {trendMap[trend] || trend}
           </h1>
         </div>
 
@@ -88,7 +95,9 @@ export default function ListPage() {
           </div>
         </div>
       </div>
-      
+      <a onClick={() => router.back()} className={styles.backButton}>
+        <img src="./2025-09-06_202226-removebg-preview.png" alt="Back" />
+      </a>
     </div>
   )  
 }
