@@ -1,16 +1,17 @@
+"use client"
 import Link from "next/link"
-import { ArrowLeft, ArrowLeft as ArrowLeftGreen } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import { ArrowLeft,ArrowLeft as ArrowLeftGreen } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
-export default function DramaInfoPage() {
+export default function DramaListPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header Navigation */}
       <div className="flex items-center justify-between p-4 border-b">
         <Button asChild variant="ghost" size="icon" className="text-foreground">
          {/* 一覧に戻る　例: /dramas */}
-         <Link href="/dramas" aria-label="一覧に戻る">
+         <Link href="/list/list2" aria-label="一覧に戻る">
          <ArrowLeft className="h-6 w-6" />
          </Link>
         </Button>
@@ -25,11 +26,6 @@ export default function DramaInfoPage() {
         {/* Drama Image →　クリックで概要(#overview)へスクロール */}
         <div className="relative">
           <div className="relative w-full h-80 overflow-hidden">
-            <Link
-              href="#overview"
-              aria-label="概要へ移動"
-              className="group relative block"
-              >
               <div className="relative w-full h-80 overflow-hidden rounded-none">
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/S__21078061.jpg-FYKQq7CY1A1sTh9lH2GVdFQgdado0M.jpeg"
@@ -40,10 +36,8 @@ export default function DramaInfoPage() {
             />
             <div className="pointer-events-none absolute inset-0 bg-black/0 group-hover:bg-black/20 transition" />
             <span className="pointer-events-none absolute bottom-3 right-3 rounded-md bg-white/90 px-3 py-1 text-xs font-medium text-foreground shadow group-hover:translate-y-[-1px] transition">
-            詳細を見る
             </span>
           </div>
-         </Link>
         </div>
         </div>
 
