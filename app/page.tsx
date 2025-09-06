@@ -2,6 +2,13 @@
 
 import { useState, useEffect, useRef } from "react"
 import { useRouter } from "next/navigation"
+import { Jacques_Francois } from 'next/font/google'
+
+// フォントの読み込みと設定
+const jacques = Jacques_Francois({
+  subsets: ['latin'],
+  weight: '400',
+})
 
 export default function HomePage() {
   const [selectedYear, setSelectedYear] = useState<number | null>(null)
@@ -68,11 +75,20 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-background p-8">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-3xl font-bold text-center mb-8">流行けんさくん</h1>
+        <h1 className={`text-5xl text-center mb-8 leading-tight ${jacques.className}`}>
+          <div>rewind</div>
+          <div>the clock</div>
+       </h1>
+
+       <p className="text-center text-lg text-gray-600 mb-8 animate__animated animate__fadeIn animate__slow font-[Poppins]">
+        時計の針を少しだけ、巻き戻しませんか。<br/>
+        忘れ去られた時代の喧騒、一世を風靡した流行の輝き。<br/>
+        指先ひとつで、記憶の旅へ。
+       </p>
 
         {/* 年代選択 */}
         <div className="mb-12">
-          <h2 className="text-xl font-bold mb-4">年代</h2>
+          <h2 className="text-xl font-bold mb-4">Decades Ago</h2>
           <div
             ref={yearScrollRef}
             className="overflow-x-auto scroll-smooth"
@@ -98,7 +114,7 @@ export default function HomePage() {
 
         {/* 流行選択 */}
         <div className="mb-12">
-          <h2 className="text-xl font-bold mb-4">流行</h2>
+          <h2 className="text-xl font-bold mb-4">Categories</h2>
           <div
             ref={trendScrollRef}
             className="overflow-x-auto scroll-smooth"
