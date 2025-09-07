@@ -128,7 +128,7 @@
 }
 
 .bg-retro-brick {
-  background-image: url('/public/2fafc3e9d97902145565992126cc4c61.jpg'); /* ここに画像パスを指定 */
+  background-image: url('/2fafc3e9d97902145565992126cc4c61.jpg'); /* ここに画像パスを指定 */
   background-size: cover;          /* 背景画像が要素全体を覆うように拡大・縮小 */
   background-position: center;     /* 背景画像を中央に配置 */
   background-attachment: fixed;    /* (任意) ページをスクロールしても背景画像を固定 */
